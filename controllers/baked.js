@@ -3,8 +3,13 @@ const router = express.Router();
 const Baked = require('../models/bakedModel.js');
 
 router.get('/', (req,res) =>{
-   // res.send("Its woking ")
-    res.render('./baked/index.ejs')
+
+    Baked.find({}, (err, allBakedGoods) => {
+      res.render('./baked/index.ejs', {
+        baked: allBakedGoods
+      })
+    })
+
 });
 
 router.post('/', (req,res)=>{
@@ -15,7 +20,7 @@ router.post('/', (req,res)=>{
    }
 
    Baked.create(req.body, (err, newBakedData) =>{
-      if(err) console.log(err);
+      if(err) { console.log(err); }
        console.log(newBakedData);
        res.redirect('/baked');
    })

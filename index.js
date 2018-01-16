@@ -16,9 +16,13 @@ app.use('/baked', bakedController);
 
 
 
+app.get('/', (req, res) => {
+	res.render('index.ejs');
+})
 
-
-
+app.get('/*/', (req, res) => {
+	res.send('404 u fucked up');
+})
 
 
 

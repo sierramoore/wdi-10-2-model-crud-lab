@@ -5,6 +5,13 @@
 
 </head>
 <body>
-    <h1>Baked Page!</h1>
+    <h1>Baked Page!</h1> 
+    <a href="/baked/new">create new</a>
+
+    <ul>
+    	<% for (let i = 0; i < baked.length; i++) { -%>
+    		<li> <a href="/"> <%= baked[i].name %> </a> </li>
+    	<% } -%>
+    </ul>
 </body>
 </html>
