@@ -11,6 +11,10 @@
     <ul>
     	<% for (let i = 0; i < baked.length; i++) { -%>
     		<li> <a href="/baked/<%= baked[i].id %>"> <%= baked[i].name %> </a> </li>
+    		<form action="/baked/<%= baked[i].id %>?_method=DELETE" method="POST">
+    			<input type="submit" value="DELETE THIS STUPID BAKED GOOD">
+    		</form>
+    		<br>
     	<% } -%>
     </ul>
 </body>

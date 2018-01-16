@@ -60,6 +60,14 @@ router.put('/:id', (req, res) => {
 
 })
 
+router.delete('/:id', (req, res) => {
+
+  Baked.findByIdAndRemove(req.params.id, (err, removedBakedGood) => {
+
+    res.redirect('/baked');
+  })
+})
+
 router.get('/:id/edit', (req, res) => {
 
   Baked.findById(req.params.id, (err, editedBakedGood) => {
