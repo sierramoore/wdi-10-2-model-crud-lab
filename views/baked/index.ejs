@@ -10,7 +10,7 @@
 
     <ul>
     	<% for (let i = 0; i < baked.length; i++) { -%>
-    		<li> <a href="/"> <%= baked[i].name %> </a> </li>
+    		<li> <a href="/baked/<%= baked[i].id %>"> <%= baked[i].name %> </a> </li>
     	<% } -%>
     </ul>
 </body>

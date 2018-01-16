@@ -30,5 +30,17 @@ router.get('/new', (req, res) =>{
    res.render('./baked/new.ejs')
 });
 
+router.get('/:id', (req, res) => {
+
+  Baked.findById(req.params.id, (err, foundBakedGood) => {
+
+    res.render('./baked/show.ejs', {
+
+      baked: foundBakedGood
+    })
+  })
+
+})
+
 
 module.exports = router;
