@@ -42,5 +42,57 @@ router.get('/:id', (req, res) => {
 
 })
 
+router.put('/:id', (req, res) => {
+
+  if (req.body.frosted == 'on') {
+    req.body.frosted = true;
+  }
+  else {
+    req.body.frosted = false;
+  }
+
+  // console.log(req.body)
+
+  Baked.findByIdAndUpdate(req.params.id, req.body, (err, updatedBakedGood) => {
+
+    res.redirect('/baked/'+req.params.id);
+  })
+
+})
+
+router.get('/:id/edit', (req, res) => {
+
+  Baked.findById(req.params.id, (err, editedBakedGood) => {
+
+    res.render('./baked/edit.ejs', {
+
+      baked: editedBakedGood
+    })
+  })
+
+})
+
+
+
+
+
+
+
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

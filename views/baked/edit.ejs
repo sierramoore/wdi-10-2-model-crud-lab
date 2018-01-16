@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>edit this baked good</title>
+</head>
+<body>
+<h1>edit the <%= baked.name %></h1>
+
+<form action="/baked/<%= baked.id %>?_method=PUT" method="POST">
+	Name: <input type="text" name="name" value="<%= baked.name %>"><br>
+	Size: <input type="text" name="size" value="<%= baked.size %>"><br>
+	Region: <input type="text" name="region" value="<%= baked.region %>"><br>
+	Frosted: <input type="checkbox" name="frosted" <% if (baked.frosted == true) { %> checked <% } %> > <br>
+	<input type="submit" value="edit this baked good">
+</form>
+
+<br>
+<br>
+<footer>
+	<a href="/baked">return to baked index</a> <br>
+	<a href="/">return to root index</a>
+</footer>
+
+</body>
+</html>
